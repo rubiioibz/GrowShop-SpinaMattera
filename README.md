@@ -1,3 +1,7 @@
+# Tienda online de Aceites a base de Cannabis
+
+Este proyecto es creado con React, con la ayuda de CoderHouse.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
