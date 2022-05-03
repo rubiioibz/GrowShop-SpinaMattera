@@ -1,4 +1,4 @@
-# Tienda online de Aceites a base de Cannabis
+# Tienda online de Cultivo de Cannabis
 
 Este proyecto es creado con React, con la ayuda de CoderHouse.
 
