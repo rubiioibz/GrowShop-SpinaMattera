@@ -14,7 +14,7 @@ function App() {
       </NavBar>
       
       <Carrusel/>
-      <ItemListContainer />
+      <ItemListContainer name='Beccar GrowShop' />
     </>
   );
 }
