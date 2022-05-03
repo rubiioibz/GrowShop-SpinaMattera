@@ -37,7 +37,14 @@ const NavBar = () => {
               </DropdownToggle>
               <DropdownMenu end>
                 <DropdownItem>Semillas</DropdownItem>
+                <DropdownItem>CBD</DropdownItem>
+                <DropdownItem>Aceites</DropdownItem>
                 <DropdownItem>Fertilizantes</DropdownItem>
+                <DropdownItem>Iluminacion</DropdownItem>
+                <DropdownItem>Sustratos</DropdownItem>
+                <DropdownItem>Armarios e Invernaderos</DropdownItem>
+                <DropdownItem>Kits de cultivo</DropdownItem>
+                <DropdownItem>Accesorios</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
             <InputGroup>
