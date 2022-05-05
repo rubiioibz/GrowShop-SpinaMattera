@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../img/logoGrowShop.png";
 import LogIn from "../img/login.png";
+import CartWidget from "./CartWidget";
 import {
   Collapse,
   Navbar,
@@ -17,7 +18,6 @@ import {
   InputGroup,
   InputGroupText,
 } from "reactstrap";
-import CartWidget from "./CartWidget";
 
 const NavBar = () => {
   return (
