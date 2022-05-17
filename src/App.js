@@ -1,17 +1,32 @@
 import React from "react";
 
-import NavBar from "./components/NavBar"
-import ItemListContainer from "./components/ItemListContainer"
-import Carrusel from "./components/Carrusel";
+//COMPONENTS
+import NavBar from "./components/NavBar";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 
+//Views
+import Home from "./views/Home/Home";
+import Semillas from "./views/Semillas/Semillas";
+import Cbd from "./views/Cbd/Cbd";
+import Aceites from "./views/Aceites/Aceites";
+import Fertilizantes from "./views/Fertilizantes/Fertilizantes";
+
+//Reac Router Dom
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <>
+    <Router>
       <NavBar />
-      <Carrusel/>
-      <ItemListContainer name='Beccar GrowShop' />
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/semillas" element={<Semillas />} />
+        <Route path="/semillas/detail/:id" element={<ItemDetailContainer />} />
+        <Route path="/Cbd" element={<Cbd />} />
+        <Route path="/Aceites" element={<Aceites />} />
+        <Route path="/Fertilizantes" element={<Fertilizantes />} />
+      </Routes>
+    </Router>
   );
 }
 

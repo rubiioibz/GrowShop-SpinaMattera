@@ -19,27 +19,33 @@ import {
   InputGroupText,
 } from "reactstrap";
 
+import { Link } from 'react-router-dom';
+
 const NavBar = () => {
   return (
     <div>
       <Navbar color="light" expand="md" light>
         <NavbarBrand href="./components/">
+          <Link to="/">
           <img src={Logo} width="45px" alt="logo" />
+          </Link>
         </NavbarBrand>
         <NavbarToggler onClick={function noRefCheck() {}} />
 
         <Collapse navbar>
+        <Link to="/">
           <NavbarText className="m-auto, h3" >Beccar GrowShop</NavbarText>
+        </Link>
           <Nav className="m-auto" navbar>
             <UncontrolledDropdown inNavbar nav>
               <DropdownToggle caret nav>
                 Menú
               </DropdownToggle>
               <DropdownMenu end>
-                <DropdownItem>Semillas</DropdownItem>
-                <DropdownItem>CBD</DropdownItem>
-                <DropdownItem>Aceites</DropdownItem>
-                <DropdownItem>Fertilizantes</DropdownItem>
+                <DropdownItem><Link to="/semillas">Semillas</Link></DropdownItem>
+                <DropdownItem><Link to="/CBD">CBD</Link></DropdownItem>
+                <DropdownItem><Link to="/Aceites">Aceites</Link></DropdownItem>
+                <DropdownItem><Link to="/Fertilizantes">Fertilizantes</Link></DropdownItem>
                 <DropdownItem>Iluminacion</DropdownItem>
                 <DropdownItem>Sustratos</DropdownItem>
                 <DropdownItem>Armarios e Invernaderos</DropdownItem>

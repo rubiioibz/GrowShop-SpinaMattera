@@ -24,8 +24,8 @@ export const Item = ({
     }
 
   return (
-    <Card body color="success" outline>
-      <CardBody className="text-center" onClick={detail}>
+    <Card body color="success" outline className="m-1">
+      <CardBody className="text-center">
         <img className="mb-2" src={img} width="100%" alt={prodName}></img>
         <CardTitle tag="h5">{prodName}</CardTitle>
         <CardSubtitle className="mb-2 text-muted" tag="h6">
@@ -33,6 +33,9 @@ export const Item = ({
         </CardSubtitle>
         <CardText>{descripcion}</CardText>
         <ItemCount stock={stock} initial={initial} price={price} />
+        <Button className="my-2 px-2 text-light btnCart" onClick={detail}>
+          Ver en detalle
+        </Button>
         <Button className="my-2 px-2 text-light btnCart">
           Agregar al carrito
         </Button>
