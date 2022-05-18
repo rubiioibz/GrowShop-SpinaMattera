@@ -1,8 +1,9 @@
 import React from "react";
 
 //COMPONENTS
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import Footer from "./components/Footer/Footer";
 
 //Views
 import Home from "./views/Home/Home";
@@ -13,6 +14,7 @@ import Fertilizantes from "./views/Fertilizantes/Fertilizantes";
 
 //Reac Router Dom
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   return (
@@ -25,7 +27,9 @@ function App() {
         <Route path="/Cbd" element={<Cbd />} />
         <Route path="/Aceites" element={<Aceites />} />
         <Route path="/Fertilizantes" element={<Fertilizantes />} />
+        <Route path="/cart" element={<Cart/>}/>
       </Routes>
+      <Footer />
     </Router>
   );
 }

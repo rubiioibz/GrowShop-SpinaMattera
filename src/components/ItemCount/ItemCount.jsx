@@ -31,7 +31,7 @@ export const ItemCount = ({ stock, initial, price }) => {
         <Button className="col-md-4" onClick={subtract}>
           -
         </Button>
-        <p className="col-md-4 h4">{count}</p>
+        <p className="col-md-4 h4 text-center">{count}</p>
         <Button className="col-md-4" disabled={disabled} onClick={add}>
           +
         </Button>

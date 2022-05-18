@@ -1,6 +1,6 @@
 import React from "react";
-import { Item } from "./Item";
-import "../itemList.css";
+import { Item } from "../Item/Item";
+import "../ItemList/itemList.css";
 import { Link } from "react-router-dom";
 
 export const ItemList = ({ items }) => {
@@ -20,7 +20,7 @@ export const ItemList = ({ items }) => {
           }) => {
             return (
               <div className="col-md-4" key={id}>
-                <Link to={`/semillas/detail/${id}`}>
+                <Link className="text-dark" to={`/semillas/detail/${id}`} style={{ textDecoration: 'none' }}>
                   <Item
                     prodName={prodName}
                     subtitle={subtitle}

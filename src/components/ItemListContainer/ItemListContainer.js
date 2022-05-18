@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { ItemList } from "./ItemList";
-import { semillas } from "../semillas.js";
+import { ItemList } from "../ItemList/ItemList";
+import { semillas } from "../../semillas";
 
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
@@ -29,11 +29,12 @@ const ItemListContainer = () => {
   return (
     <>
       {loading ? (
+        <div className="container">
         <img
-          className="mx-auto"
+          className="mx-auto d-block"
           alt=""
           src="https://24.media.tumblr.com/3c2264156c68662537acb13764415d9d/tumblr_mrjgort4sR1sc50pho1_500.gif"
-        ></img>
+        ></img></div>
       ) : (
         <ItemList items={items} />
       )}

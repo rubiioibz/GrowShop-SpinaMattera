@@ -7,7 +7,7 @@ import {
   CardText,
   Button,
 } from "reactstrap";
-import { ItemCount } from "./ItemCount";
+import { ItemCount } from "../ItemCount/ItemCount";
 
 export const Item = ({
   prodName,
@@ -19,10 +19,6 @@ export const Item = ({
   price,
 }) => {
 
-    const detail = () => {
-        alert('aca iran los detalles del producto')
-    }
-
   return (
     <Card body color="success" outline className="m-1">
       <CardBody className="text-center">
@@ -33,9 +29,6 @@ export const Item = ({
         </CardSubtitle>
         <CardText>{descripcion}</CardText>
         <ItemCount stock={stock} initial={initial} price={price} />
-        <Button className="my-2 px-2 text-light btnCart" onClick={detail}>
-          Ver en detalle
-        </Button>
         <Button className="my-2 px-2 text-light btnCart">
           Agregar al carrito
         </Button>
