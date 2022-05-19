@@ -7,6 +7,7 @@ export const ItemCount = ({ stock, initial, price }) => {
   const [disabled, setDisabled] = useState(false);
 
   const add = () => {
+
     if (count < stock) {
       setCount(Number(count) + 1);
       setTotal(Number(total) + Number(price));

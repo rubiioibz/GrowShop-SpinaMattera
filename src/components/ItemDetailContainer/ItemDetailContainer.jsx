@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { semillas } from "../../semillas";
+import { products } from "../../products";
 
 import ItemDetail from "../ItemDetail/ItemDetail";
 
@@ -12,10 +12,10 @@ const ItemDetailContainer = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const prod = products.findIndex((e) => e.id == id);
     const getItem = new Promise((res, rej) => {
       setTimeout(() => {
-        const prod = semillas.findIndex((e) => e.id == id);
-        res(semillas[prod]);
+        res(products[prod]);
       }, 2000);
     });
 

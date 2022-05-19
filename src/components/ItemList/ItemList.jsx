@@ -1,7 +1,6 @@
 import React from "react";
 import { Item } from "../Item/Item";
 import "../ItemList/itemList.css";
-import { Link } from "react-router-dom";
 
 export const ItemList = ({ items }) => {
   return (
@@ -20,17 +19,16 @@ export const ItemList = ({ items }) => {
           }) => {
             return (
               <div className="col-md-4" key={id}>
-                <Link className="text-dark" to={`/semillas/detail/${id}`} style={{ textDecoration: 'none' }}>
-                  <Item
-                    prodName={prodName}
-                    subtitle={subtitle}
-                    descripcion={descripcion}
-                    img={img}
-                    stock={stock}
-                    initial={initial}
-                    price={price}
-                  />
-                </Link>
+                <Item
+                  id={id}
+                  prodName={prodName}
+                  subtitle={subtitle}
+                  descripcion={descripcion}
+                  img={img}
+                  stock={stock}
+                  initial={initial}
+                  price={price}
+                />
               </div>
             );
           }

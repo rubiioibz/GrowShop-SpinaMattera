@@ -1,4 +1,4 @@
-export const semillas = [
+export const products = [
     {
         id: 1,
         prodName: 'Afghan',
@@ -7,7 +7,8 @@ export const semillas = [
         descripcion: 'Some build on the card title and make up the bulk of the cards content',
         initial: 1,
         stock: 5,
-        price: 30
+        price: 30,
+        category: "semillas"
     },
     {
         id: 2,
@@ -17,7 +18,8 @@ export const semillas = [
         descripcion: 'Some build on the card title and make up the bulk of the cards content',
         initial: 1,
         stock: 10,
-        price: 20
+        price: 20,
+        category: "semillas"
     },
     {
         id: 3,
@@ -27,7 +29,8 @@ export const semillas = [
         descripcion: 'Some build on the card title and make up the bulk of the cards content',
         initial: 1,
         stock: 15,
-        price: 50
+        price: 50,
+        category: "semillas"
     },
     {
         id: 4,
@@ -37,7 +40,8 @@ export const semillas = [
         descripcion: 'Some build on the card title and make up the bulk of the cards content',
         initial: 1,
         stock: 50,
-        price: 35
+        price: 35,
+        category: "semillas"
     },
     {
         id: 5,
@@ -47,7 +51,8 @@ export const semillas = [
         descripcion: 'Some build on the card title and make up the bulk of the cards content',
         initial: 1,
         stock: 100,
-        price: 20
+        price: 20,
+        category: "CBD"
     },
     {
         id: 6,
@@ -57,6 +62,7 @@ export const semillas = [
         descripcion: 'Some build on the card title and make up the bulk of the cards content',
         initial: 1,
         stock: 15,
-        price: 40
+        price: 40,
+        category: "CBD"
     }
 ]
