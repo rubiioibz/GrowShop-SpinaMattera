@@ -7,7 +7,6 @@ import {
   CardText,
   Button,
 } from "reactstrap";
-import { ItemCount } from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
 
 export const Item = ({
@@ -19,7 +18,6 @@ export const Item = ({
   stock,
   initial,
   price,
-  category
 }) => {
 
   
@@ -33,13 +31,9 @@ export const Item = ({
           {subtitle}
         </CardSubtitle>
         <CardText>{descripcion}</CardText>
-        <ItemCount stock={stock} initial={initial} price={price} />
-        <Button className="my-2 px-2 text-light btnCart">
-          Agregar al carrito
-        </Button>
         <Link
           className="text-dark"
-          to={`/category/detail/${id}`}
+          to={`/item/${id}`}
           style={{ textDecoration: "none" }}
         >
           <Button className="my-2 px-2 text-dark btnCart bg-warning">Ver detalle</Button>

@@ -58,22 +58,22 @@ const NavBar = () => {
               </DropdownToggle>
               <DropdownMenu end>
                 <DropdownItem>
-                  <Link to="/semillas" style={{ textDecoration: "none" }}>
+                  <Link to="/category/semillas" style={{ textDecoration: "none" }}>
                     Semillas
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link to="/CBD" style={{ textDecoration: "none" }}>
+                  <Link to="/category/CBD" style={{ textDecoration: "none" }}>
                     CBD
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link to="/Aceites" style={{ textDecoration: "none" }}>
+                  <Link to="/category/Aceites" style={{ textDecoration: "none" }}>
                     Aceites
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link to="/Fertilizantes" style={{ textDecoration: "none" }}>
+                  <Link to="/category/Fertilizantes" style={{ textDecoration: "none" }}>
                     Fertilizantes
                   </Link>
                 </DropdownItem>
