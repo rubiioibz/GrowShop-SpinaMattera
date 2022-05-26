@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../ItemDetail/itemDetailSemillas.css";
 import { ItemCount } from "../ItemCount/ItemCount";
+
+import { CartContext } from "../../Context/CartContext";
 
 import { Link } from "react-router-dom";
 
@@ -15,16 +17,22 @@ import {
 } from "reactstrap";
 
 const ItemDetail = ({ item }) => {
+
+  const [shoppingCart, setShoppingCart, isInCart, addToCart, removeItem, clear] = useContext(CartContext)
+  
+
   const initial = 1;
   const [cuenta, setCuenta] = useState(initial);
 
-  const onAdd = (count) => {
-    alert(`Has agregado ${count} productos al carrito.`);
+  const onAdd = (quantity) => {
+    alert(`Has agregado ${quantity} productos al carrito.`);
     setCuenta(0);
+    addToCart(item, quantity)
+    
   };
 
   return (
-    <Card className="m-5 w-50 container p-2">
+    <Card className="m-5 w-50 container p-2 mx-auto d-block">
       <CardTitle className="text-center h2" tag="h5">
         {item.prodName}
       </CardTitle>
@@ -45,10 +53,13 @@ const ItemDetail = ({ item }) => {
           ) : (
             <div className="m-auto">
               <Link to="/cart" style={{ textDecoration: "none" }}>
-                <Button className="col-3 my-3 text-warning btnCart">
+                <Button className="col-3 my-3 mx-auto text-warning btnCart">
                   Ir al carrito
                 </Button>
               </Link>
+              <button className="col-3 my-3 bg-danger text-light btnCart mx-auto" onClick={clear}>
+                Borrar todo
+              </button>
             </div>
           )}
         </div>

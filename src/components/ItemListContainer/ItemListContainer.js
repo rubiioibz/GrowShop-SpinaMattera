@@ -11,27 +11,28 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     const prodFiltrados = products.filter((prod) => prod.category === category);
-    setTimeout(() => {
-      const data = new Promise((resolve, reject) => {
+    const data = new Promise((resolve, reject) => {
+      setTimeout(() => {
         if (category === undefined) {
           resolve(products);
         } else {
           resolve(prodFiltrados);
         }
-      });
+      }, 2000);
+    });
 
-      data.then((data) => {
+    data
+      .then((data) => {
         setItems(data);
-      });
+      })
 
-      data.then(() => {
+      .then(() => {
         setLoading(false);
-      });
+      })
 
-      data.catch((err) => {
+      .catch((err) => {
         console.error(err);
       });
-    }, 2000);
   }, [category]);
 
   return (
