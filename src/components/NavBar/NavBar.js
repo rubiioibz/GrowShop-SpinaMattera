@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 //img
 import Logo from "../../img/logoGrowShop.png";
 import LogIn from "../../img/login.png";
@@ -6,6 +6,9 @@ import LogIn from "../../img/login.png";
 import CartWidget from "../CartWidget/CartWidget";
 //CSS
 import "../NavBar/navBar.css";
+
+//cartContext
+import { CartContext } from "../../Context/CartContext";
 
 //reacstrap
 import {
@@ -29,6 +32,8 @@ import {
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
+  const [shoppingCart] = useContext(CartContext)
+
   //hacer funcionar el menu hamburguesa
   const [open, setOpen] = useState(false);
   const toggle = () => {
@@ -38,7 +43,7 @@ const NavBar = () => {
   return (
     <div>
       <Navbar color="light" expand="md" light>
-        <NavbarBrand href="./components/">
+        <NavbarBrand>
           <Link to="/">
             <img src={Logo} width="45px" alt="logo" />
           </Link>
@@ -94,7 +99,7 @@ const NavBar = () => {
           <img src={LogIn} alt="login" />
         </NavLink>
         <Link to="/cart" style={{ textDecoration: "none" }}>
-          <CartWidget />
+           {shoppingCart.length > 0 && <CartWidget cantItems={shoppingCart.length} />}
         </Link>
       </Navbar>
     </div>

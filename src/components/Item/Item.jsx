@@ -14,13 +14,8 @@ export const Item = ({
   prodName,
   subtitle,
   descripcion,
-  img,
-  stock,
-  initial,
-  price,
+  img
 }) => {
-
-  
 
   return (
     <Card body color="success" outline className="m-1">

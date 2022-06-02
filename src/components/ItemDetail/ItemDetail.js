@@ -17,18 +17,20 @@ import {
 } from "reactstrap";
 
 const ItemDetail = ({ item }) => {
+  const [shoppingCart, setShoppingCart, isInCart, addToCart, removeItem, clear ] = useContext(CartContext);
 
-  const [shoppingCart, setShoppingCart, isInCart, addToCart, removeItem, clear] = useContext(CartContext)
-  
+  const [ quantity, setQuantity ] = useState(0);
 
-  const initial = 1;
+  const [ itemID, setItemID ] = useState();
+
+  let initial = 1;
   const [cuenta, setCuenta] = useState(initial);
 
-  const onAdd = (quantity) => {
-    alert(`Has agregado ${quantity} productos al carrito.`);
+  const onAdd = (quantity, itemID) => {
     setCuenta(0);
-    addToCart(item, quantity)
-    
+    setQuantity(quantity);
+    setItemID(itemID);
+    addToCart(item, quantity);
   };
 
   return (
@@ -47,6 +49,7 @@ const ItemDetail = ({ item }) => {
             <ItemCount
               stock={item.stock}
               initial={item.initial}
+              id={item.id}
               price={item.price}
               onAdd={onAdd}
             />
@@ -57,9 +60,6 @@ const ItemDetail = ({ item }) => {
                   Ir al carrito
                 </Button>
               </Link>
-              <button className="col-3 my-3 bg-danger text-light btnCart mx-auto" onClick={clear}>
-                Borrar todo
-              </button>
             </div>
           )}
         </div>

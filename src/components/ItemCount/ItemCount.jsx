@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "reactstrap";
 
-export const ItemCount = ({ stock, initial, price, onAdd }) => {
+export const ItemCount = ({ stock, initial, price, onAdd, id }) => {
   const [count, setCount] = useState(initial);
   const [total, setTotal] = useState(price);
   const [disabled, setDisabled] = useState(false);
@@ -36,7 +36,7 @@ export const ItemCount = ({ stock, initial, price, onAdd }) => {
         <Button className="col-md-4" disabled={disabled} onClick={add}>
           +
         </Button>
-        <Button className="m-auto col-3 my-3 text-light btnCart " onClick={()=> onAdd(count)}>
+        <Button className="m-auto col-3 my-3 text-light btnCart " onClick={()=> onAdd(count, id)}>
             Agregar al carrito
           </Button>
       </div>

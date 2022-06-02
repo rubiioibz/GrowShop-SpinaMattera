@@ -1,40 +1,73 @@
-import React from 'react'
-import { Card, CardBody, CardTitle, CardText, Button } from "reactstrap"
+import React, { useContext } from "react";
+import { Card, CardBody, CardTitle, CardText, Button } from "reactstrap";
+import { Link } from "react-router-dom";
+
+import { CartContext } from "../../Context/CartContext";
 
 function Cart() {
-  return (
-    <div>
-  <Card className='row m-4'>
-    <CardBody>
-        <img alt='' width="100px" src='https://cdn.pixabay.com/photo/2020/08/03/23/42/smoking-5461331_960_720.jpg'></img>
-      <CardTitle tag="h5">
-        Producto 1
-      </CardTitle>
-      <CardText>
-        With supporting text below as a natural lead-in to additional content.
-      </CardText>
-      <Button className='bg-danger'>
-        Eliminar
-      </Button>
-    </CardBody>
-  </Card>
+  const [
+    shoppingCart,
+    setShoppingCart,
+    isInCart,
+    addToCart,
+    removeItem,
+    clear,
+    totalPrice,
+    cartQuantity,
+  ] = useContext(CartContext);
 
-  <Card className='row m-4'>
-    <CardBody>
-    <img alt='' width="100px" src='https://cdn.pixabay.com/photo/2020/08/03/23/42/smoking-5461331_960_720.jpg'></img>
-      <CardTitle tag="h5">
-        Producto 2
-      </CardTitle>
-      <CardText>
-        With supporting text below as a natural lead-in to additional content.
-      </CardText>
-      <Button className='bg-danger'>
-        Eliminar
-      </Button>
-    </CardBody>
-  </Card>
-</div>
-  )
+  return (
+    <>
+      {shoppingCart.length > 0 ? (
+        <div className="row p-2 m-auto">
+          {shoppingCart.map((e) => {
+            return (
+              <Card key={e.item.id} className="col-8 m-4">
+                <CardBody>
+                  <img alt="" width="100px" src={e.item.img}></img>
+                  <CardTitle tag="h5">{e.item.prodName}</CardTitle>
+                  <CardText>{e.item.subtitle}</CardText>
+                  <p>Cantidad: {e.quantity}</p>
+                  <p>Precio por unidad: ${e.item.price}</p>
+                  <Button
+                    className="bg-danger"
+                    onClick={() => {
+                      removeItem(e.item.id);
+                    }}
+                  >
+                    Eliminar
+                  </Button>
+                </CardBody>
+              </Card>
+            );
+          })}
+
+          <Card className="col-3 m-2">
+            <CardBody>
+              <h2>Subtotal:</h2>
+              <p>Cantidad de productos: {cartQuantity()}</p>
+              <p>Precio final: ${totalPrice()}</p>
+              <Button
+                onClick={() => {
+                  clear();
+                }}
+              >
+                Vaciar carrito
+              </Button>
+              <Button className="bg-success m-2">Finalizar compra</Button>
+            </CardBody>
+          </Card>
+        </div>
+      ) : (
+        <div>
+          <h2 className="text-center my-4">El carrito de compras esta vacio</h2>
+          <Link to="/item/2">
+            <p className="text-center">Volver atras</p>
+          </Link>
+        </div>
+      )}
+    </>
+  );
 }
 
-export default Cart
+export default Cart;

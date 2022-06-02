@@ -12,11 +12,11 @@ const ItemDetailContainer = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const prod = products.findIndex((e) => e.id == id);
+    const product = products.find((e) => e.id == id);
     const getItem = new Promise((res, rej) => {
       setTimeout(() => {
-        res(products[prod]);
-      }, 2000);
+        res(product);
+      }, 1000);
     });
 
     getItem
@@ -33,11 +33,12 @@ const ItemDetailContainer = () => {
     <>
       {loading ? (
         <div className="container">
-        <img
-          className="mx-auto d-block"
-          alt=""
-          src="https://24.media.tumblr.com/3c2264156c68662537acb13764415d9d/tumblr_mrjgort4sR1sc50pho1_500.gif"
-        ></img></div>
+          <img
+            className="mx-auto d-block"
+            alt=""
+            src="https://24.media.tumblr.com/3c2264156c68662537acb13764415d9d/tumblr_mrjgort4sR1sc50pho1_500.gif"
+          ></img>
+        </div>
       ) : (
         <ItemDetail item={item} />
       )}

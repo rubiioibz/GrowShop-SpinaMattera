@@ -3,39 +3,61 @@ import React, { createContext, useState } from "react";
 //Crear contexto
 export const CartContext = createContext();
 
-//Array de carrito
-const cart = [];
-
 //crear el Provider
-export const CartProvider = (props) => {
-  const [shoppingCart, setShoppingCart] = useState(cart);
+export const CartProvider = ({children}) => {
 
-  const isInCart = (id) => {
-    return shoppingCart.some((e) => e.id === id);
-  };
+  const [shoppingCart, setShoppingCart] = useState([]);
 
   const addToCart = (item, quantity) => {
-    if (isInCart) {
-      setShoppingCart([...shoppingCart, { quantity: quantity + 1 }]);
+    
+    if (isInCart(item.id)) {
+      const index = shoppingCart.findIndex((e) => e.item.id === item.id);
+      shoppingCart[index].quantity = shoppingCart[index].quantity + quantity;
+      setShoppingCart([...shoppingCart]);
     } else {
-      setShoppingCart([...shoppingCart, { item: item, quantity: quantity }]);
+      const newItem = {
+        item,
+        quantity,
+      };
+      setShoppingCart([...shoppingCart, newItem]);
     }
   };
 
-  const removeItem = (item) => {
-    setShoppingCart(shoppingCart.filter((e) => e.item.id === item));
+  const isInCart = (id) => {
+    return shoppingCart.some((e) => e.item.id === id);
+  };
+
+  const removeItem = (id) => {
+    const update = shoppingCart.filter((e) => e.item.id !== id);
+    setShoppingCart(update);
   };
 
   const clear = () => {
     setShoppingCart([]);
   };
 
+  const cartQuantity = () => {
+    const cartQuantity = shoppingCart.reduce(
+      (accum, item) => (accum = accum + item.quantity),
+      0
+    );
+    return cartQuantity;
+  };
+
+  const totalPrice = () => {
+    return shoppingCart.reduce(
+      (accum, element) => (accum + element.quantity * element.item.price),
+      0
+    ).toFixed(2);
+  };
+
+
   //return context con .Provider y dentro props.children, pasarle una prop nombre value.
   return (
     <CartContext.Provider
-      value={[shoppingCart, setShoppingCart, isInCart, addToCart, removeItem, clear]}
+      value={[shoppingCart, setShoppingCart, isInCart, addToCart, removeItem, clear, totalPrice, cartQuantity]}
     >
-      {props.children}
+      {children}
     </CartContext.Provider>
   );
 };

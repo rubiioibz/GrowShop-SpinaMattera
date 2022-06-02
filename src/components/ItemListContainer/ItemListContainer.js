@@ -18,7 +18,7 @@ const ItemListContainer = () => {
         } else {
           resolve(prodFiltrados);
         }
-      }, 2000);
+      }, 1000);
     });
 
     data
