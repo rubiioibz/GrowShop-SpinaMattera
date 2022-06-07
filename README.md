@@ -81,5 +81,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ## Dependencys
 
 ### React-Router-dom:  https://www.npmjs.com/package/react-router-dom
-### Axios: [https://www.axios.com/](https://axios-http.com/docs/intro)
+### Axios: https://axios-http.com/docs/intro
 
