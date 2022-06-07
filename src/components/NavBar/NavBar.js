@@ -73,12 +73,12 @@ const NavBar = () => {
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link to="/category/Aceites" style={{ textDecoration: "none" }}>
+                  <Link to="/category/aceites" style={{ textDecoration: "none" }}>
                     Aceites
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link to="/category/Fertilizantes" style={{ textDecoration: "none" }}>
+                  <Link to="/category/fertilizantes" style={{ textDecoration: "none" }}>
                     Fertilizantes
                   </Link>
                 </DropdownItem>

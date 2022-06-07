@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { products } from "../../products";
+//Firebase
+import {
+  collection,
+  query,
+  getDocs,
+  where,
+  documentId,
+} from "firebase/firestore";
+import { db } from "../../firebase/firebaseConfig";
+
 
 import ItemDetail from "../ItemDetail/ItemDetail";
 
@@ -12,21 +21,17 @@ const ItemDetailContainer = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const product = products.find((e) => e.id == id);
-    const getItem = new Promise((res, rej) => {
-      setTimeout(() => {
-        res(product);
-      }, 1000);
-    });
-
-    getItem
-      .then((data) => {
-        setItem(data);
-      })
-      .then(() => {
-        setLoading(false);
-      })
-      .catch((err) => console.error(err));
+    const getItem = async () => {
+      const q = query(collection(db, "products"), where(documentId(), "==", id));
+      const docs = [];
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
+      });
+      setItem(docs[0]);
+      setLoading(false);
+    };
+    getItem();
   }, [id]);
 
   return (

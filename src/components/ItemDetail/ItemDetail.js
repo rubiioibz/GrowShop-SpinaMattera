@@ -54,12 +54,21 @@ const ItemDetail = ({ item }) => {
               onAdd={onAdd}
             />
           ) : (
+            <div className="row">
+            <div className="m-auto">
+              <Link to="/" style={{ textDecoration: "none" }}>
+                <Button className="col-3 my-3 mx-auto text-light btnCart">
+                  Seguir comprando
+                </Button>
+              </Link>
+            </div>
             <div className="m-auto">
               <Link to="/cart" style={{ textDecoration: "none" }}>
                 <Button className="col-3 my-3 mx-auto text-warning btnCart">
                   Ir al carrito
                 </Button>
               </Link>
+            </div>
             </div>
           )}
         </div>

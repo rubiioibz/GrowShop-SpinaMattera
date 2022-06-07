@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { ItemList } from "../ItemList/ItemList";
-import { products } from "../../products";
 import { useParams } from "react-router-dom";
+
+//Firebase
+import { collection, query, getDocs } from "firebase/firestore";
+import { db } from "../../firebase/firebaseConfig";
 
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
@@ -10,29 +13,28 @@ const ItemListContainer = () => {
   const { category } = useParams();
 
   useEffect(() => {
-    const prodFiltrados = products.filter((prod) => prod.category === category);
-    const data = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (category === undefined) {
-          resolve(products);
-        } else {
-          resolve(prodFiltrados);
-        }
-      }, 1000);
-    });
-
-    data
-      .then((data) => {
-        setItems(data);
-      })
-
-      .then(() => {
-        setLoading(false);
-      })
-
-      .catch((err) => {
-        console.error(err);
+    const getItem = async () => {
+      const q = query(collection(db, "products"));
+      const docs = [];
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
       });
+      setItems(docs);
+      if (category === undefined) {
+        setItems(docs);
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
+      } else {
+        setItems(docs.filter((elem) => elem.category === category));
+
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
+      }
+    };
+    getItem();
   }, [category]);
 
   return (

@@ -30,12 +30,12 @@ function Cart() {
                   <p>Cantidad: {e.quantity}</p>
                   <p>Precio por unidad: ${e.item.price}</p>
                   <Button
-                    className="bg-danger"
+                    className="bg-danger text-light"
                     onClick={() => {
                       removeItem(e.item.id);
                     }}
                   >
-                    Eliminar
+                    🗑️
                   </Button>
                 </CardBody>
               </Card>
@@ -61,8 +61,8 @@ function Cart() {
       ) : (
         <div>
           <h2 className="text-center my-4">El carrito de compras esta vacio</h2>
-          <Link to="/item/2">
-            <p className="text-center">Volver atras</p>
+          <Link to="/">
+            <p className="text-center">Volver a comprar</p>
           </Link>
         </div>
       )}

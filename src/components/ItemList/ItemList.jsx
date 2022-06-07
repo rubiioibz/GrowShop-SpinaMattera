@@ -25,7 +25,6 @@ export const ItemList = ({items}) => {
                     id={id}
                     prodName={prodName}
                     subtitle={subtitle}
-                    descripcion={descripcion}
                     img={img}
                     stock={stock}
                     initial={initial}
