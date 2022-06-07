@@ -2,6 +2,9 @@
 
 Este proyecto es creado con React, con la ayuda de CoderHouse.
 
+![image](https://user-images.githubusercontent.com/95389293/172274167-a33545e5-7a94-4543-add7-08b127adf3a8.png)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -72,3 +75,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Dependencys
+
+React-Router-dom:  https://www.npmjs.com/package/react-router-dom
+Axios: https://www.axios.com/
+
