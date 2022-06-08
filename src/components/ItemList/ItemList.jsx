@@ -18,6 +18,7 @@ export const ItemList = ({items}) => {
             stock,
             initial,
             price,
+            category
           }) => {
             return (
                 <div className="col-md-4" key={id}>
@@ -25,6 +26,7 @@ export const ItemList = ({items}) => {
                     id={id}
                     prodName={prodName}
                     subtitle={subtitle}
+                    category={category}
                     img={img}
                     stock={stock}
                     initial={initial}

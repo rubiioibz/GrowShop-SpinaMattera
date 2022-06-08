@@ -19,20 +19,22 @@ import {
   NavbarText,
   Nav,
   NavLink,
-  DropdownMenu,
-  DropdownToggle,
-  DropdownItem,
-  UncontrolledDropdown,
-  Input,
-  InputGroup,
-  InputGroupText,
 } from "reactstrap";
 
 //React Router-Dom
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
-  const [shoppingCart] = useContext(CartContext)
+  //Styles
+  const styles = {
+    color: "black",
+    fontSize: 18,
+    margin: 20,
+    textDecoration: "none",
+    padding: "0px 50px"
+  };
+
+  const [shoppingCart] = useContext(CartContext);
 
   //hacer funcionar el menu hamburguesa
   const [open, setOpen] = useState(false);
@@ -41,7 +43,7 @@ const NavBar = () => {
   };
 
   return (
-    <div>
+    <div className="sticky-top">
       <Navbar color="light" expand="md" light>
         <NavbarBrand>
           <Link to="/">
@@ -57,49 +59,31 @@ const NavBar = () => {
             </NavbarText>
           </Link>
           <Nav className="m-auto" navbar>
-            <UncontrolledDropdown inNavbar nav>
-              <DropdownToggle caret nav>
-                Menú
-              </DropdownToggle>
-              <DropdownMenu end>
-                <DropdownItem>
-                  <Link to="/category/semillas" style={{ textDecoration: "none" }}>
-                    Semillas
-                  </Link>
-                </DropdownItem>
-                <DropdownItem>
-                  <Link to="/category/CBD" style={{ textDecoration: "none" }}>
-                    CBD
-                  </Link>
-                </DropdownItem>
-                <DropdownItem>
-                  <Link to="/category/aceites" style={{ textDecoration: "none" }}>
-                    Aceites
-                  </Link>
-                </DropdownItem>
-                <DropdownItem>
-                  <Link to="/category/fertilizantes" style={{ textDecoration: "none" }}>
-                    Fertilizantes
-                  </Link>
-                </DropdownItem>
-                <DropdownItem>Iluminacion</DropdownItem>
-                <DropdownItem>Sustratos</DropdownItem>
-                <DropdownItem>Armarios e Invernaderos</DropdownItem>
-                <DropdownItem>Kits de cultivo</DropdownItem>
-                <DropdownItem>Accesorios</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-            <InputGroup>
-              <InputGroupText>Buscar</InputGroupText>
-              <Input />
-            </InputGroup>
+            <Link to="/category/semillas" style={styles} className="linkNavBar">
+              Semillas
+            </Link>
+            <Link to="/category/CBD" style={styles} className="linkNavBar">
+              CBD
+            </Link>
+            <Link to="/category/aceites" style={styles} className="linkNavBar">
+              Aceites
+            </Link>
+            <Link
+              to="/category/fertilizantes"
+              style={styles}
+              className="linkNavBar"
+            >
+              Fertilizantes
+            </Link>
           </Nav>
         </Collapse>
         <NavLink>
           <img src={LogIn} alt="login" />
         </NavLink>
         <Link to="/cart" style={{ textDecoration: "none" }}>
-           {shoppingCart.length > 0 && <CartWidget cantItems={shoppingCart.length} />}
+          {shoppingCart.length > 0 && (
+            <CartWidget cantItems={shoppingCart.length} />
+          )}
         </Link>
       </Navbar>
     </div>

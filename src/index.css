@@ -6,6 +6,7 @@
 
 body {
   height: 100vh;
+  background: rgba(162, 204, 162, 0.411) !important;
 }
 
 /*filter: invert(1) hue-rotate(180deg);*/

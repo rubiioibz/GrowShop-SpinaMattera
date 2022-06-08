@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 //PROVIDER HOC (HIGH ORDER COMPONENT) PARA ENVOLVER TODA LA APP
 import { CartProvider } from "./Context/CartContext";

@@ -17,11 +17,18 @@ import {
 } from "reactstrap";
 
 const ItemDetail = ({ item }) => {
-  const [shoppingCart, setShoppingCart, isInCart, addToCart, removeItem, clear ] = useContext(CartContext);
+  const [
+    shoppingCart,
+    setShoppingCart,
+    isInCart,
+    addToCart,
+    removeItem,
+    clear,
+  ] = useContext(CartContext);
 
-  const [ quantity, setQuantity ] = useState(0);
+  const [quantity, setQuantity] = useState(0);
 
-  const [ itemID, setItemID ] = useState();
+  const [itemID, setItemID] = useState();
 
   let initial = 1;
   const [cuenta, setCuenta] = useState(initial);
@@ -34,11 +41,14 @@ const ItemDetail = ({ item }) => {
   };
 
   return (
-    <Card className="m-5 w-50 container p-2 mx-auto d-block">
+    
+    <Card className="m-5 w-50 container p-2 mx-auto d-block" style={{border: "none", cursor: "default"}}>
       <CardTitle className="text-center h2" tag="h5">
         {item.prodName}
       </CardTitle>
-      <CardImg className="p-2" alt="" src={item.img} top width="100%" />
+      <a target="_blank" rel="noreferrer" href={item.img}>
+      <img className="p-2" alt="" src={item.img} top width="100%" />
+      </a>
       <CardBody className="text-center">
         <CardSubtitle className="mb-2 text-muted" tag="h6">
           {item.subtitle}
@@ -55,20 +65,20 @@ const ItemDetail = ({ item }) => {
             />
           ) : (
             <div className="row">
-            <div className="m-auto">
-              <Link to="/" style={{ textDecoration: "none" }}>
-                <Button className="col-3 my-3 mx-auto text-light btnCart">
-                  Seguir comprando
-                </Button>
-              </Link>
-            </div>
-            <div className="m-auto">
-              <Link to="/cart" style={{ textDecoration: "none" }}>
-                <Button className="col-3 my-3 mx-auto text-warning btnCart">
-                  Ir al carrito
-                </Button>
-              </Link>
-            </div>
+              <div className="m-auto">
+                <Link to="/" style={{ textDecoration: "none" }}>
+                  <Button className="col-3 my-3 mx-auto text-light btnCart">
+                    Seguir comprando
+                  </Button>
+                </Link>
+              </div>
+              <div className="m-auto">
+                <Link to="/cart" style={{ textDecoration: "none" }}>
+                  <Button className="col-3 my-3 mx-auto text-warning btnCart">
+                    Ir al carrito
+                  </Button>
+                </Link>
+              </div>
             </div>
           )}
         </div>

@@ -6,6 +6,7 @@ export const CartContext = createContext();
 //crear el Provider
 export const CartProvider = ({children}) => {
 
+  const [show, setShow] = useState(false)
   const [shoppingCart, setShoppingCart] = useState([]);
 
   const addToCart = (item, quantity) => {
@@ -34,6 +35,7 @@ export const CartProvider = ({children}) => {
 
   const clear = () => {
     setShoppingCart([]);
+    setShow(false)
   };
 
   const cartQuantity = () => {
@@ -55,7 +57,7 @@ export const CartProvider = ({children}) => {
   //return context con .Provider y dentro props.children, pasarle una prop nombre value.
   return (
     <CartContext.Provider
-      value={[shoppingCart, setShoppingCart, isInCart, addToCart, removeItem, clear, totalPrice, cartQuantity]}
+      value={[shoppingCart, setShoppingCart, isInCart, addToCart, removeItem, clear, totalPrice, cartQuantity, show, setShow]}
     >
       {children}
     </CartContext.Provider>

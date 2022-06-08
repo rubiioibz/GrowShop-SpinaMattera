@@ -1,8 +1,10 @@
-DropDownItem {
-    text-decoration: none;
-    color: black;
-}
 
 .none {
     display: block;
   }
+
+.linkNavBar:hover {
+    background-color: rgba(64, 131, 109, 0.397);
+    border-radius: 25px;
+    transition: ease-in 0.5s;
+}

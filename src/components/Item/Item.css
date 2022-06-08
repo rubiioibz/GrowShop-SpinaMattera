@@ -1,0 +1,9 @@
+.btnCart2 {
+    color: white !important;
+    background: rgb(206, 189, 42) !important;
+}
+
+.btnCart2:hover {
+    background: rgb(42, 66, 47) !important;
+    color: white !important;
+}
