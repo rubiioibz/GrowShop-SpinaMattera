@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAxJFLi-Rd4ky4vaYl-5vYWtLzKQYl73Sg",
-  authDomain: "beccar-growshop---spinamattera.firebaseapp.com",
-  projectId: "beccar-growshop---spinamattera",
-  storageBucket: "beccar-growshop---spinamattera.appspot.com",
-  messagingSenderId: "566641145734",
-  appId: "1:566641145734:web:b259b3a24f23a471821e07",
+  apiKey: `${process.env.REACT_APP_API_KEY}`,
+  authDomain: `${process.env.REACT_APP_AUTH_DOMAIN}`,
+  projectId: `${process.env.REACT_APP_PROJECT_ID}`,
+  storageBucket: `${process.env.REACT_APP_STORAGE_BUCKET}`,
+  messagingSenderId: `${process.env.REACT_APP_MESSAGING}`,
+  appId: `${process.env.REACT_APP_APP_ID}`,
 };
 
 // Initialize Firebase

@@ -72,7 +72,9 @@ function CheckOut({ showCheckOut, item, total }) {
             <Card className="cardForm m-3 p-3">
               <Card.Title className="text-success">Órden enviada</Card.Title>
               <Card.Body>
-                <Card.Text>Su número de orden es: <mark>{order}</mark></Card.Text>
+                <Card.Text>
+                  Su número de orden es: <mark>{order}</mark>
+                </Card.Text>
                 <Card.Footer className="text-light bg-success d-flex justify-content-around">
                   ¡Muchas gracias por su compra! en breves recibira su pedido en
                   su domicilio.
